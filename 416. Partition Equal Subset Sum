@@ -1,0 +1,28 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       int[] arr={1,2,3,4,5,6,7,8,9};
+       int sum=0;
+       for(int val:arr){
+           sum+=val;
+       }
+          if (sum % 2 != 0) {
+            System.out.print("it is not an partition equal subset sum");
+            return;
+        }
+       if(addsub(arr,0,sum/2)==true){
+           System.out.print("it is an partition equal subset sum ");
+       }else{
+             System.out.print("it is not an partition equal subset sum ");
+       }
+    }
+    public static boolean addsub(int[] arr,int i,int target){
+        if(target==0){
+            return true;
+        }
+        if(i>=arr.length || target<0){
+            return false;
+        }
+        return addsub(arr,i+1,target-arr[i]) || addsub(arr,i+1,target);
+    }
+}
