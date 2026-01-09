@@ -1,0 +1,24 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a Number : ");
+        int n = sc.nextInt();
+        char[] ch = new char[n*2];
+        para(ch,n,0,0,0);
+    }
+    public static void para(char[] ch,int n,int i,int o,int c){
+        if(i==ch.length){
+            System.out.println(new String(ch));
+            return;
+        }
+       if(o<n){
+           ch[i]='(';
+           para(ch,n,i+1,o+1,c);
+       }
+       if(c<o){
+           ch[i]=')';
+           para(ch,n,i+1,o,c+1);
+       }
+    }
+}
