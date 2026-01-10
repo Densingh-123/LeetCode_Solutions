@@ -110,3 +110,167 @@ class Main {
 
 
 
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String s1 = "listen";
+        String s2 = "silent";
+        if(s1.length()!=s2.length()){
+            System.out.print("not anagram");
+            return;
+        }
+        Map<Character,Integer> map = new HashMap<>();
+        for(char c : s1.toCharArray()){
+            map.put(c,map.getOrDefault(c,0)+1);
+        }
+        for(char c:s2.toCharArray()){
+            if(!map.containsKey(c)){
+                System.out.print("not an anagram");
+                return;
+            }
+            map.put(c,map.get(c)-1);
+        }
+        System.out.print("the given string is an anagram");
+    }
+}
+
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String[] str={"tea","tab","ate","eat"};
+        Map<String,List<String>> map = new HashMap<>();
+        for(int i=0;i<str.length;i++){
+            String st = str[i];
+            char[] ch = st.toCharArray();
+            Arrays.sort(ch);
+            String s = new String(ch);
+            if(!map.containsKey(s)){
+                map.put(s,new ArrayList<>());
+            }
+            map.get(s).add(st);
+        }
+        System.out.print(map.values());
+    }
+}
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       int[] a = {1,2,3,4,3,2,2,5};
+       int[] b = {1,5,4,3,2,7,4,9,8};
+       Map<Integer,Integer> map = new HashMap<>();
+       for(int n:a){
+           map.put(n,map.getOrDefault(n,0)+1);
+       }
+       for(int n:b){
+           if(map.getOrDefault(n,0)>0){
+               System.out.print(n+" ");
+               map.put(n,map.get(n)-1);
+           }
+       }
+    }
+}
+
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr={1,2,3,4,5,3,2,1,2,4};
+        Map<Integer,Integer> map = new HashMap<>();
+        for(int n : arr){
+            map.put(n,map.getOrDefault(n,0)+1);
+        }
+        for(int n:arr){
+            if(map.get(n)>1){
+                System.out.print(n);
+                break;
+            }
+        }
+    }
+}
+
+
+
+
+int[] arr = {1, 2, 3};
+int k = 5;
+
+Map<Integer, Integer> map = new HashMap<>();
+map.put(0, 1);
+
+int sum = 0;
+
+for (int x : arr) {
+    sum += x;
+    if (map.containsKey(sum - k)) {
+        System.out.println("Found");
+        break;
+    }
+    map.put(sum, map.getOrDefault(sum, 0) + 1);
+}
+
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+     int[] arr={1,2,3,100,200,4,5,400};
+     int current=1;
+     int longest=1;
+     Arrays.sort(arr);
+     for(int i=1;i<arr.length;i++){
+         if(arr[i]==arr[i-1]+1){
+             current++;
+         }else{
+             current=1;
+         }
+         longest=Math.max(longest,current);
+     }
+     
+     System.out.print(longest);
+    }
+}
+
+
+
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+
+        String s = "egg";
+        String t = "add";
+
+        Map<Character, Character> map1 = new HashMap<>();
+        Map<Character, Character> map2 = new HashMap<>();
+
+        for (int i = 0; i < s.length(); i++) {
+
+            char c1 = s.charAt(i);
+            char c2 = t.charAt(i);
+
+            // Check s → t
+            if (map1.containsKey(c1) && map1.get(c1) != c2) {
+                System.out.println("Not Isomorphic");
+                return;
+            }
+
+            // Check t → s
+            if (map2.containsKey(c2) && map2.get(c2) != c1) {
+                System.out.println("Not Isomorphic");
+                return;
+            }
+
+            // Store mapping
+            map1.put(c1, c2);
+            map2.put(c2, c1);
+        }
+
+        System.out.println("Isomorphic");
+    }
+}
+
