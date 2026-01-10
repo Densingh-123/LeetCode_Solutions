@@ -1,0 +1,35 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr={1,2,3,4,5,6,7};
+        int target=20;
+        Arrays.sort(arr);
+        for(int i=0;i<arr.length;i++){
+            int complement = target-arr[i];
+            int index = binary(arr,complement,i+1,arr.length-1);
+            if(index!=-1){
+                System.out.print("the two index are "+arr[i]+" and "+arr[index]);
+                return;
+            }else{
+                System.out.print("no index for that target");
+                break;
+            }
+            
+        }
+        
+    }
+    public static int binary(int[] arr,int val,int l,int h){
+        while(l<=h){
+            int mid=(l+h)/2;
+            if(arr[mid]==val){
+                return mid;
+            }
+            else if(arr[mid]<val){
+                l=mid+1;
+            }else{
+               h=mid-1; 
+            }
+        }
+        return -1;
+    }
+}
