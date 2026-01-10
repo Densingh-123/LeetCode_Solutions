@@ -1,0 +1,112 @@
+int[] arr = {1, 2, 2, 3};
+Map<Integer, Integer> map = new HashMap<>();
+
+for (int num : arr) {
+    map.put(num, map.getOrDefault(num, 0) + 1);
+}
+
+System.out.println(map);
+
+
+
+
+String s = "aabcc";
+Map<Character, Integer> map = new HashMap<>();
+
+for (char c : s.toCharArray()) {
+    map.put(c, map.getOrDefault(c, 0) + 1);
+}
+
+System.out.println(map);
+
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr={10,20,30,40,50};
+        Map<Integer,Boolean> map = new HashMap<>();
+        for(int num:arr){
+            map.put(num,true);
+        }
+        System.out.print(map.containsKey(10));
+    }
+}
+
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       int[] arr={1,1,1,2,2,2,3,4,5,6,4,8,8,7,9,0,1};
+       Map<Integer,Integer> map = new HashMap<>();
+       for(int num: arr){
+           map.put(num,1);
+       }
+       System.out.print(map.size());
+    }
+}
+
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr={1,2,3,4,5,6,7,8,9};
+        Map<Integer,Integer> map = new HashMap<>();
+        int target=4;
+        int[] res = new int[2];
+        for(int i=0;i<arr.length;i++){
+            int need = target-arr[i];
+            if(map.containsKey(need)){
+                res[0]=need;
+                res[1]=arr[i];
+            }
+            map.put(arr[i],i);
+        }
+        for(int num:res){
+            System.out.print(num);
+        }
+    }
+}
+
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr={1,2,3,4,5,2,4,5,5,1,2};
+        Map<Integer,Integer> map = new HashMap<>();
+        for(int num:arr){
+            map.put(num,map.getOrDefault(num,0)+1);
+        }
+        for(int num:arr){
+            if(map.get(num)==1){
+                System.out.print(num);
+                break;
+            }
+        }
+    }
+}
+
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr={1,2,3,4,4,2,2,2,2,2,1,1,2};
+        Map<Integer,Integer> map = new HashMap<>();
+        int n = arr.length;
+        for(int num:arr){
+            map.put(num,map.getOrDefault(num,0)+1);
+            if(map.get(num)>n/2){
+                System.out.print(num);
+                break;
+            }
+        }
+    }
+}
+
+
+
+
