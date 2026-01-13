@@ -1,0 +1,36 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+      int[] arr={1,2,3,4,5,4,3,2,1};
+      int val=0;
+      for(int num:arr){
+          val^=num;
+      }
+      System.out.print(val);
+    }
+}
+
+
+
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+
+        int[] arr = {1,2,3,5,6,5,3,2,1};
+
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int num : arr) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        // Print element occurring once
+        for (int num : arr) {
+            if (map.get(num) == 1) {
+                System.out.print(num);
+                break;
+            }
+        }
+    }
+}
