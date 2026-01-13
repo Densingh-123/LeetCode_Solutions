@@ -1,0 +1,20 @@
+import java.util.*;
+class Main {
+    static String[] keypad = {"","","abc","def","ghi","jkl","mnop","qrs","tuv","wxyz"}; 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a Number : ");
+        String str = sc.nextLine();
+        possible(str,"");
+    }
+    public static void possible(String str,String res){
+        if(str.length()==0){
+            System.out.print(res);
+            return;
+        }
+        String key=keypad[str.charAt(0)-48];
+        for(int i=0;i<key.length();i++){
+            possible(str.substring(1),res+key.charAt(i));
+        }
+    }
+}
