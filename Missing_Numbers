@@ -1,0 +1,62 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       int[] arr={1,2,3,3,5,6,5,8,9,2,1,10,12,23,65,12};
+       Map<Integer,Integer> map = new HashMap<>();
+       int max=arr[0];
+       for(int i=0;i<arr.length;i++){
+           if(arr[i]>max){
+               max=arr[i];
+           }
+       }
+       List<Integer> list = new ArrayList<>();
+       for(int num:arr){
+           map.put(num,map.getOrDefault(num,0)+1);
+       }
+       for(int i=0;i<max;i++){
+           if(!map.containsKey(i)){
+               list.add(i);
+           }
+       }
+       System.out.print(list);
+    }
+}
+
+
+
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {10,12,11,15};
+        Set<Integer> set = new HashSet<>();
+
+        for (int num : arr) set.add(num);
+
+        int min = 10, max = 15;
+
+        for (int i = min; i <= max; i++) {
+            if (!set.contains(i)) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+}
+
+
+
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1,2,4,5};
+        int n = 5;
+
+        int expectedSum = n * (n + 1) / 2;
+        int actualSum = 0;
+
+        for (int num : arr) {
+            actualSum += num;
+        }
+
+        System.out.print(expectedSum - actualSum);
+    }
+}
