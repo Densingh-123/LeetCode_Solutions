@@ -1,0 +1,27 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	String s = "Dens";
+	String t = "date";
+	iso(s,t);
+	}
+	public static void iso(String s,String t){
+	    Map<Character,Character> map = new HashMap<>();
+	    if(s.length()!=t.length()){
+	        System.out.print("not isomorphic");
+	        return;
+	    }
+	    for(int i=0;i<s.length();i++){
+	        if(map.containsKey(s.charAt(i))){
+	            if(!map.get(s.charAt(i)).equals(t.charAt(i))){
+	       System.out.print("not isomorphic");
+	        return;
+	            }
+	        }
+	        map.put(s.charAt(i),t.charAt(i));
+	    }
+	     System.out.print("isomorphic");
+	      
+	}
+}
